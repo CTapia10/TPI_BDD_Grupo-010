@@ -1,0 +1,12 @@
+.env
+/Capturas
+/node_modules
+/resguardos_tpi
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Logs de npm
+npm-debug.log*
