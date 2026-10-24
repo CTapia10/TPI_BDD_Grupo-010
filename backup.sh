@@ -15,11 +15,15 @@ if [ ! -f "${ENV_FILE}" ]; then
 fi
 
 while IFS= read -r line || [ -n "$line" ]; do
+  line="${line%$'\r'}"
   case "$line" in
     ''|\#*) continue ;;
   esac
   key="${line%%=*}"
   value="${line#*=}"
+  key="${key%$'\r'}"
+  value="${value%"${value##*[![:space:]]}"}"
+  value="${value#"${value%%[![:space:]]*}"}"
   value="${value%\"}"
   value="${value#\"}"
   value="${value%\'}"
@@ -36,7 +40,7 @@ fi
 FECHA=$(date +%Y-%m-%d)
 
 # 2. Definir la ruta relativa requerida por la consigna
-DESTINO="./resguardos_tpi/${FECHA}"
+DESTINO="${SCRIPT_DIR}/resguardos_tpi/${FECHA}"
 
 echo "========================================================"
 echo "INICIANDO RESPALDO DE KIOSKO DB - MONGODB ATLAS"
