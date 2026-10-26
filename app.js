@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import readline from 'readline/promises';
 import { stdin as input, stdout as output } from 'process';
 import dotenv from 'dotenv';
+import { registrarVentaConsola, listarVentasConsola } from './ventas.mjs';
 
 dns.setDefaultResultOrder('ipv4first');
 dotenv.config();
@@ -112,6 +113,8 @@ async function mostrarMenu() {
   console.log('3. Modificar precio/stock (UPDATE)');
   console.log('4. Eliminar producto - Baja lógica (DELETE)');
   console.log('5. Ver base completa (Auditoría de activos e inactivos)');
+  console.log('6. Registrar venta');
+  console.log('7. Consultar ventas');
   console.log('0. Salir');
   console.log('========================================');
 }
@@ -242,6 +245,14 @@ async function iniciarConsola() {
           break;
         }
 
+        case '6': {
+          await registrarVentaConsola(rl, Producto, Venta);
+          break;
+        }
+        case '7': {
+          await listarVentasConsola(Venta);
+          break;
+        }
         case '0': {
           console.log('\nSaliendo de la aplicación...');
           salir = true;
