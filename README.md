@@ -109,25 +109,25 @@ Está prohibida la eliminación física de registros. En las colecciones `catego
 
 Se desplegó un clúster gratuito compartido (Tier M0) provisto en la región `sa-east-1` (São Paulo).
 
-> **\[INSERTAR CAPTURA 1: Panel de MongoDB Atlas mostrando el Clúster M0 desplegado y activo\]**
+<img width="1119" height="880" alt="Paso-6-CreacionCluster-M0" src="https://github.com/user-attachments/assets/2cfa06d8-ac44-47f9-bad7-3f21ba318775" />
 
 ### 3.2. Acceso de Base de Datos (Database Access)
 
 Se configuró un usuario de base de datos con rol de lectura y escritura (`readWriteAnyDatabase`).
 
-> **\[INSERTAR CAPTURA 2: Pestaña Database Access con el usuario de aplicación del grupo y sus privilegios asignados\]**
+<img width="1654" height="440" alt="Paso-3-CreacionUserPermisosDBB-M0" src="https://github.com/user-attachments/assets/da1a9cbb-92c1-4e0e-be20-52d7187825c1" />
 
 ### 3.3. Configuración de Red (Network Access)
 
 Se habilitó la regla de red `0.0.0.0/0` (acceso global) para posibilitar la conexión remota del entorno docente y la ejecución distribuida de los miembros del grupo.
 
-> **\[INSERTAR CAPTURA 3: Pestaña Network Access con la regla de IP `0.0.0.0/0` en estado Active\]**
+<img width="1639" height="238" alt="Paso-3-CreacionConexionDBB-M0" src="https://github.com/user-attachments/assets/ca299165-fd23-4e42-8808-30cf1309e1ba" />
 
 ### 3.4. Colecciones y Datos Sembrados en Atlas
 
 Evidencia de los documentos persistidos directamente en la base `kiosko_db`.
 
-> **\[INSERTAR CAPTURA 4: Vista de Collections en Atlas con los documentos de `categorias` y `productos`\]**
+<img width="1097" height="451" alt="06_Verificacion_MongoDB_Atlas" src="https://github.com/user-attachments/assets/dd14820a-3884-4be0-ac9d-e1fda2d7214c" />
 
 ---
 
@@ -169,7 +169,7 @@ MONGODB_URI="mongodb://<user>:<password>@<host-00>:27017,<host-01>:27017,<host-0
 
 &nbsp;
 
-> **\[INSERTAR CAPTURA 5: Estructura del proyecto en el IDE (VS Code) con `package.json`, `.env` y `app.js`\]**
+<img width="880" height="722" alt="Paso-Final-ConexionDBB-Mongoose" src="https://github.com/user-attachments/assets/bb355f8c-e6c0-4718-8e25-9c4fcb362073" />
 
 ### 5.3. Código Fuente Principal (`app.js`)
 
@@ -451,11 +451,15 @@ iniciarConsola();
 
 ### 5.4. Demostración Práctica del CRUD y Baja Lógica
 
-> **\[INSERTAR CAPTURA 6: Consola ejecutando CREATE e inserción de un producto\]**
+<img width="769" height="334" alt="01_CREATE_Registro_Producto png" src="https://github.com/user-attachments/assets/f9c2ea6c-f905-46ff-9eb9-86c48d6e8ead" />
 
-> **\[INSERTAR CAPTURA 7: Consola ejecutando READ activo y posterior UPDATE con `$set`\]**
+<img width="749" height="275" alt="02_READ_Consulta_Productos" src="https://github.com/user-attachments/assets/2b8222c5-cf19-4e5f-805f-174ed781495c" />
 
-> **\[INSERTAR CAPTURA 8: Demostración de DELETE lógico (Opción 4), verificación de que no aparece en READ (Opción 1\) y comprobación en Auditoría (Opción 5\) de que el documento sigue existiendo con `activo: false`\]**
+<img width="1330" height="564" alt="03_UPDATE_Modificar_Producto" src="https://github.com/user-attachments/assets/5ff9ac30-a7b7-4d1a-a787-ffacba138a3e" />
+
+<img width="1325" height="326" alt="04_DELETE_Baja_Logica" src="https://github.com/user-attachments/assets/c3dc6868-6d45-4d56-8cd3-2ce3c1da78f5" />
+
+<img width="731" height="538" alt="05_Verificacion_Baja_Logica_y_Auditoria" src="https://github.com/user-attachments/assets/7d08fe63-c553-44da-b6d1-355eddf320f4" />
 
 ---
 
@@ -594,9 +598,9 @@ fi
 
 6.3. Evidencia de Ejecución y Estructura de Volcado
 
-> **\[INSERTAR CAPTURA 9: Terminal mostrando la corrida del script con los mensajes de `mongodump` volcando `kiosko_db.categorias` y `kiosko_db.productos`\]**
+<img width="1379" height="345" alt="07_Backup_Base_Datos" src="https://github.com/user-attachments/assets/b1063769-122e-4c39-aa7a-af3ce5185a51" />
 
-> **\[INSERTAR CAPTURA 10: Explorador de archivos o comando `dir` mostrando los archivos `.bson` y `.metadata.json` dentro de `resguardos_tpi/<fecha>/kiosko_db`\]**
+<img width="287" height="222" alt="08_Verificacion_Archivos_Backup" src="https://github.com/user-attachments/assets/00b87eaa-00c4-4602-b6aa-50b82c53d2ad" />
 
 ### 6.4. Análisis de Tolerancia a Fallos: RTO y RPO
 
